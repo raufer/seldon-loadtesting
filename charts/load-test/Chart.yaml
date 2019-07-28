@@ -1,0 +1,7 @@
+apiVersion: v1
+description: Seldon Inference Graph Load Testing
+name: load-test
+version: v0.1.0
+keywords:
+  - kubernetes
+  - machine-learning

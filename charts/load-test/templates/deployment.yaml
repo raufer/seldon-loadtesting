@@ -1,0 +1,33 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ .Chart.Name }}
+  labels:
+    app: loadtesting
+    contetx: seldon
+spec:
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      seldon: loadtesting
+  template:
+    metadata:
+      labels:
+        seldon: loadtesting
+    spec:
+      containers:
+        - name: loadtesting
+          image: {{ .Values.image.name }}
+          resources:
+            limits:
+              memory: "500Mi"
+            requests:
+              memory: "100Mi"
+          env:
+          {{- if .Values.env }}
+            {{- range $key, $val := .Values.env }}
+            - name: {{ $key }}
+              value: {{ $val }}
+            {{- end }}
+            {{ else }} []
+          {{- end }}
