@@ -10,6 +10,6 @@ seldon-core-api-tester \
    --log-level INFO \
    --endpoint predict \
    --batch-size 3 \
-   --n-requests 300 -p  
+   --n-requests 100000 -p
 
 

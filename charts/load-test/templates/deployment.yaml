@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: {{ .Chart.Name }}
+  name: {{ .Values.name }}
   labels:
     app: loadtesting
     contetx: seldon
@@ -19,10 +19,9 @@ spec:
         - name: loadtesting
           image: {{ .Values.image.name }}
           resources:
-            limits:
-              memory: "500Mi"
             requests:
-              memory: "100Mi"
+              memory: 100Mi
+              cpu: 0.1
           env:
           {{- if .Values.env }}
             {{- range $key, $val := .Values.env }}
