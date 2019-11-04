@@ -1,16 +1,15 @@
 name: loadtesting
 namespace: jx-staging
 image:
-  name: "788644545849.dkr.ecr.us-east-2.amazonaws.com/seldon/loadtesting:0.1"
+  name: "gcr.io/marionete-dev/mnist-loadtesting:latest"
   pullPolicy: IfNotPresent
 resources:
   requests:
     memory: "1Mi"
 replicas: "3"
 env:
-  CONTRACT_PATH: "s3://manticore-contracts/mnist/contract.json"
   HOST: "ambassor.gateway.3.130.155.243.nip.io"
-  PORT: "'80'"
+  PORT: "80"
   NAMESPACE: jx-staging
   DEPLOYMENT: manticore
 

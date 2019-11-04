@@ -1,7 +1,5 @@
 #!/bin/bash
 
-aws s3 cp $CONTRACT_PATH .
-
 seldon-core-api-tester \
    contract.json \
    $HOST $PORT \

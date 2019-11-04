@@ -6,11 +6,10 @@ Start a load testing with:
 helm install charts/load-test --name loadtest \
     --namespace jx-staging \
     --set replicas="3" \
-    --set env.CONTRACT_PATH="s3://manticore-contracts/mnist/contract.json" \
     --set env.HOST="ambassor.gateway.3.130.155.243.nip.io" \
-    --set env.PORT="80" \
+    --set env.PORT="'80'" \
     --set env.NAMESPACE="jx-staging" \
-    --set env.DEPLOYMENT"=manticore"
+    --set env.DEPLOYMEN="manticore"
 ```
 
 `replicas` controls the load.
